@@ -66,7 +66,7 @@
     $(".wed_form").validate({
 	  submitHandler: function(form) {
 	  	var type = $(form).attr('id');
-	    send_form(type);
+	    //send_form(type);
 		return false;
 	  }
 	 });
