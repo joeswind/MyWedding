@@ -92,7 +92,7 @@
 	  var dataString = (arr.join (' '));
 	  $.ajax({
 	          method: "POST",
-	          url: "https://formspree.io/verothemes@gmail.com",
+	          url: "https://formspree.io/",
 	          data: dataString,
 	          dataType: "json",
 	          success: function() {
@@ -588,57 +588,6 @@
 	  $grid.isotope({ filter: filterValue });
 	});
 	
-	
-	$("#wed_form input,#wed_form textarea").jqBootstrapValidation({
-        preventSubmit: true,
-        submitError: function($form, event, errors) {
-            // additional error messages or events
-        },
-        submitSuccess: function($form, event) {
-            event.preventDefault(); // prevent default submit behaviour
-            // get values from FORM
-            var name = $('input[name="entry.1733800795"]').val();
-            var email = $('input[name="entry.968506318"]').val();
-            var phone = $('input[name="entry.1851365373"]').val();
-			var address = $('input[name="entry.192051737"]').val();
-			
-            $.ajax({
-                url: "https://docs.google.com/forms/d/e/1FAIpQLSeSV4HcLGKV3D2FSy0GJAlpzKNqniTBPU8L7apZnwzi1HD52w/formResponse?" + "entry.1733800795=" + name
-                  + "&entry.968506318=" + email +  "&entry.1851365373=" + phone + "&entry.192051737=" + address + "&submit=Submit",
-                type: "GET",
-                cache: false,
-                success: function() {
-                    // Success message
-                    $('#success').html("<div class='alert alert-success'>");
-                    $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-                        .append("</button>");
-                    $('#success > .alert-success')
-                        .append("<strong>您的訊息已經成功送出，為確保訊息不要丟失，請盡速與我們電話聯絡，謝謝. </strong>");
-                    $('#success > .alert-success')
-                        .append('</div>');
-
-                    //clear all fields
-                    $('#contactForm').trigger("reset");
-                },
-                error: function(xhr, textStatus) {
-                    $('#success').html("<div class='alert alert-success'>");
-                    $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-                        .append("</button>");
-                    $('#success > .alert-success')
-                        .append("<strong>您的訊息已經成功送出，為確保訊息不要丟失，請盡速與我們電話聯絡，謝謝</strong>");
-                    $('#success > .alert-success')
-                        .append('</div>');
-
-                    //clear all fields
-                    $('#contactForm').trigger("reset");
-                },
-            });
-        },
-        filter: function() {
-            return $(this).is(":visible");
-        },
-    });
-
 });
 
 	
